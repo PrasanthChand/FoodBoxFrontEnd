@@ -1,0 +1,79 @@
+<!-- nav -->
+<!-- <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+  <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="/">Home</a>
+      <a class="nav-item nav-link" routerLink="/admin" *ngIf="isAdmin">Admin</a>
+      <a class="nav-item nav-link" (click)="logout()">Logout</a>
+  </div>
+</nav> -->
+
+<nav class="navbar navbar-expand-sm sticky-top bg1" *ngIf="currentUser" >
+    <nav class="navbar navbar-dark "><img class="logoimg" src=".\assets\images\Food Box.JPG" alt="Food Box Logo"></nav>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="btn btn-primary nav-item nav-link" style="background-color: #042d4b;" href="/getAllItems">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item dropdown">
+          <div class="dropdown">
+            <a class="btn btn-primary nav-item nav-link" style="background-color: #042d4b;color: white;">Item</a>
+            <div class="dropdown-content">
+              <br />
+              <a href="/findByItemId">Find By Id</a>
+              <a href="/findByItemCuisine">Find By Cuisine</a>
+              <a href="/getAllItems"> All Items</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item dropdown" *ngIf="isAdmin">
+          <div class="dropdown">
+          <a class="nav-item nav-link btn btn-primary nav-item nav-link" style="background-color: #042d4b; color: white;" routerLink="/admin" *ngIf="isAdmin">Admin</a>
+          <div class="dropdown-content">
+            <br />
+            <a href="/createItem">Create Item</a>
+            <a href="/findByItemId">Find By Id</a>
+            <a href="/findByItemCuisine">Find By Cuisine</a>
+            <a href="/getAllItems"> All Items</a>
+            <a href="/updateItem">Update Item</a>
+            <a href="/deleteByItemId">Delete Item</a>
+          </div>  
+        </div>
+        </li>
+      </ul>
+      <a routerLink="/cart" class="btn btn-primary my-2 my-sm-0 nav-item nav-link"style="background-color: #042d4b;">Checkout</a>
+      <a class="btn btn-primary my-2 my-sm-0 nav-item nav-link" style="background-color: #ec5711; color: white;" (click)="logout()">Logout</a>
+   </div>
+</nav>
+  <div align="center" class="bg">
+    <router-outlet>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+    </router-outlet>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+  </div>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>

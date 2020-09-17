@@ -1,0 +1,32 @@
+<h3>Items in your Cart</h3>
+<table>
+    <th>Item Id</th>
+    <th>Item Name</th>
+    <th>Item Image</th>
+    <th>Item Cuisine</th>
+    <th>Item Price</th>
+    <tr *ngFor="let cartitem of cartitems">
+        <td >{{cartitem.itemId}}</td>
+        <td>{{cartitem.itemName | titlecase}}</td>
+        <td class="img-hover-zoom"><img class="images" src="{{cartitem.itemImage}}" /></td>
+        <td>{{cartitem.itemCuisine | titlecase}}</td>
+        <td>{{cartitem.itemPrice| currency:'INR'}}</td>
+    </tr>
+</table>
+<br />
+<br />
+
+<h4>Please confirm your purchase</h4>
+<table>
+    <th>Item Id</th>
+    <th>Item Name</th>
+    <th>Item Cuisine</th>
+    <th>Item Price</th>
+    <tr *ngFor="let cartitem of cartitems">
+        <td><input type="number" [(ngModel)]="cartitem.itemId" ></td>
+        <td><input type="text" [(ngModel)]="cartitem.itemName"></td>
+        <td><input type="text" [(ngModel)]="cartitem.itemCuisine"></td>
+        <td><input type="number" [(ngModel)]="cartitem.itemPrice"></td>
+    </tr>
+</table>
+<button class="btn btn-primary" style="width: 13rem" (click)="createPurchase()">Buy now</button> 

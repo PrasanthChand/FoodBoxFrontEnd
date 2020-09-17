@@ -1,0 +1,16 @@
+<h4>Items List</h4>
+<br />
+<br />
+<div class="row">
+    <div *ngFor="let item of items" class="card" style="width: 14rem; margin-left:auto;margin-bottom: 3rem;">
+        <td class="img-hover-zoom"><img class="card-img-top img-hover-zoom" src="{{item.itemImage}}" alt="Card image cap"></td>
+        <div class="card-body">
+            <h5 class="card-text cardheading">{{item.itemName | titlecase }}</h5>
+            <h6 class="card-text cardcontent">Id: {{item.itemId}}</h6>
+            <h6 class="card-text cardcontent">Cuisine: {{item.itemCuisine}}</h6>
+            <h6 class="card-text cardcontent">Description: {{item.description}}</h6>
+            <h6 class="card-text btn" style="background-color: rgb(224, 221, 29);">Price: {{item.itemPrice | currency:'INR'}}</h6>
+            <button class="btn btn-primary" (click)="addToCart(item)">Add to Cart</button>
+        </div>
+    </div>
+</div>
