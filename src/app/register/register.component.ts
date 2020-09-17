@@ -6,6 +6,7 @@ import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../_services/authentication.service';
 import { UserService } from '../_services/user.service';
 import { AlertService} from '../_services/alert.service';
+import { generate } from 'rxjs';
 
 @Component({ templateUrl: 'register.component.html' })
 export class RegisterComponent implements OnInit {
@@ -31,7 +32,10 @@ export class RegisterComponent implements OnInit {
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
             username: ['', Validators.required],
-            password: ['', [Validators.required, Validators.minLength(6)]]
+            password: ['', [Validators.required, Validators.minLength(6)]],
+            phone:['', Validators.required],
+            address:['',Validators.required],
+            dateOfBirth:['',Validators.required]
         });
     }
 
@@ -55,6 +59,7 @@ export class RegisterComponent implements OnInit {
             .subscribe(
                 data => {
                     this.alertService.success('Registration successful', true);
+                    window.alert('User Registration successful, please login!');
                     this.router.navigate(['/login']);
                 },
                 error => {

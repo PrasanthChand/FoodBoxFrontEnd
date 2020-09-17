@@ -10,9 +10,9 @@ div, body {
     text-align: left;
   }
   .logoimg {
-    width: 85px;
-    height: 85px;
-    background: #555;
+    width: 170px;
+    height: 100px;
+    background: rgb(14, 13, 13);
   }
   img {
     float: inherit;
@@ -154,7 +154,7 @@ div, body {
   }
 
   button {
-    background-color: rgb(103, 23, 139);
+    background-color: rgb(201, 109, 243);
   }
 
   loginposi{

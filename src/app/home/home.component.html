@@ -28,13 +28,46 @@
     </div>
 </div> -->
 
-
-<h1>Logged in as {{currentUser.firstName}}!</h1>
-<p>You're in FoodBox Admin Portal</p>
-<h3>All registered users:</h3>
+<h1>Welcome to FoodBox Admin Portal</h1>
+<!-- <h3>All registered users:</h3>
 <ul>
     <li *ngFor="let user of users">
         {{user.username}} ({{user.firstName}} {{user.lastName}})
         - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
     </li>
-</ul>
+</ul> -->
+
+<br />
+<h4 style="text-decoration:underline">Registered User Details</h4>
+<br />
+<br />
+     <table>
+        <th>User Id</th>
+        <th>Login User Name</th>
+        <th>User First Name</th>
+        <th>User Last Name</th>
+        <th>User Address</th>
+        <th>User Phone Number</th>
+        <th>User Date of Birth</th>
+        <th>Delete user</th>
+        <tr *ngFor="let user of users">
+            <td>{{user.id}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.firstName | titlecase}}</td>
+            <td>{{user.lastName | titlecase}}</td>
+            <td>{{user.address}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.dateOfBirth}}</td>
+            <td><button (click)="deleteUser(user.id)" class="btn-sm" style="background-color: tomato;border:solid;">Delete</button></td>
+        </tr>
+    </table> 
+
+    <style>
+        table,th,tr,td {    text-align: center;
+    align-content: center;
+    border-style: solid;
+    border-color: black;
+    border-radius: 1px;
+    background-color: wheat;}
+ 
+    </style>    

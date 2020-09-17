@@ -38,6 +38,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                     return getUsers();
                 case url.match(/\/users\/\d+$/) && method === 'GET':
                     return getUserById();
+                case url.match(/\/users\/\d+$/) && method === 'DELETE':
+                    return deleteUser();
                 default:
                     // pass through any requests not handled above
                     return next.handle(request);
@@ -57,6 +59,9 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 firstName: user.firstName,
                 lastName: user.lastName,
                 role: user.role,
+                phone: user.phone,
+                address: user.address,
+                dateOfBirth: user.dateOfBirth,
                 token: `fake-jwt-token.${user.id}`
             });
         
@@ -73,6 +78,17 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
             user.id = users.length ? Math.max(...users.map(x => x.id)) + 1 : 1;
             users.push(user);
+            localStorage.setItem('users', JSON.stringify(users));
+
+            return ok();
+        }
+
+        function deleteUser() {
+            const user = body
+            if (users.find(x => x.username === user.username)) {
+                return error('Username "' + user.username + '" is already taken')
+            }
+            users.pop(user);
             localStorage.setItem('users', JSON.stringify(users));
 
             return ok();

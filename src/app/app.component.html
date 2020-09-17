@@ -12,7 +12,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="btn btn-primary nav-item nav-link" style="background-color: #042d4b;" href="/getAllItems">Home <span class="sr-only">(current)</span></a>
+          <a class="btn btn-primary nav-item nav-link" style="background-color: #042d4b;" href="/getAllItems"><svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-house-door" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5H9.5a.5.5 0 0 1-.5-.5v-4H7v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4h3.5V7.707L8 2.207l-5.5 5.5z"/>
+            <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+          </svg>  Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item dropdown">
           <div class="dropdown">
@@ -39,9 +42,18 @@
           </div>  
         </div>
         </li>
+        <li class="nav-item dropdown" *ngIf="isAdmin">
+          <a class="nav-item nav-link" class="nav-item nav-link btn btn-primary nav-item nav-link" style="background-color: #042d4b; color: white;" *ngIf="isAdmin"routerLink="/">User Management</a>
+        </li>
       </ul>
-      <a routerLink="/cart" class="btn btn-primary my-2 my-sm-0 nav-item nav-link"style="background-color: #042d4b;">Checkout</a>
-      <a class="btn btn-primary my-2 my-sm-0 nav-item nav-link" style="background-color: #ec5711; color: white;" (click)="logout()">Logout</a>
+      <h6 style="color: white; margin-right: 40px;">Logged in as : {{currentUser.firstName}}</h6>
+      <a routerLink="/cart" class="btn btn-primary my-2 my-sm-0 nav-item nav-link"style="background-color: #042d4b;"><svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-cart3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+      </svg>  Checkout</a>
+      <a class="btn btn-primary my-2 my-sm-0 nav-item nav-link" style="background-color: #ec5711; color: white;" (click)="logout()"><svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-box-arrow-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+      </svg>  Logout</a>
    </div>
 </nav>
   <div align="center" class="bg">
