@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { environment } from '/Users/chandp23/Desktop/_/Full Stack/others/FoodBox_FrontEnd/foodBox/src/environments/environment';
+import { environment } from '../../environments/environment';
 import { AuthenticationService } from '../_services/authentication.service';
 
 @Injectable()
